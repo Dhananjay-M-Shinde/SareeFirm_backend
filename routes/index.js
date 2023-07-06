@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const branchRouter = require('./branch');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send("router get method")
-  
-});
+router.use('/branch', branchRouter);
 
 module.exports = router;
