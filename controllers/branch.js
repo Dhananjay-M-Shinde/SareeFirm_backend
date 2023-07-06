@@ -2,7 +2,7 @@ const modelbranch = require('../models/branch');
 
 let branch = {};
 
-branch.getAllBranch = async(req, res) =>{
+branch.getAllBranch = async() =>{
     let allBranch = await modelbranch.getBranch();
     if(allBranch){
         return allBranch;

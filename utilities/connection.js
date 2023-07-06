@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise=global.Promise;
-const url = "mongodb://localhost:27017/SareeFirmDB";
+const url = 'mongodb://127.0.0.1:27017/SareeFirmDB';
 
 const branchSchema = new mongoose.Schema({
   Branch_Id: {
@@ -35,6 +35,57 @@ const branchSchema = new mongoose.Schema({
   }
 }, {collection:"branch", timestamps: true});
 
+const productSchema = new mongoose.Schema({
+  Product_Id: {
+    type: Number,
+    required: true
+  },
+  Branch_Id: {
+    type: Number,
+    required: true
+  },
+  Product_name: {
+    type: String,
+    required: true
+  },
+  Description: {
+    type: String,
+    required: true
+  },
+  Fabric: {
+    type: String,
+    required: true
+  },
+  Price_range: {
+    type: String,
+    required: true
+  },
+  Varients: [
+    {
+      Color: {
+        type: String,
+        required: true
+      },
+      Price: {
+        type: Number,
+        required: true
+      },
+      Design: {
+        type: String,
+        required: true
+      },
+      Image: {
+        type: String,
+        required: true
+      },
+      Quantity_Available: {
+        type: Number,
+        required: true
+      }
+    }
+  ]
+}, {collection:"inventory", timestamps:true});
+
 
 let collection = {};
 
@@ -50,11 +101,16 @@ collection.getAllBranch = async() => {
     }
 };
 
-collection.getName = async() => {
-    console.log("inside connection name");
-    await mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
-    let model = await mongoose.model("first", firstSchema);
-    return model;
+collection.getProduct = async() => {
+    try {
+      await mongoose.connect('mongodb://127.0.0.1:27017/SareeFirmDB',{useNewUrlParser:true});
+      let model = await mongoose.model("inventory", productSchema);
+      return model;
+    } catch (err) {
+      let error = new Error("could not connect to database");
+      error.status = 500;
+      throw error;
+    }
 }
 
 
