@@ -89,3 +89,7 @@
 {"timestamp":"2023-07-06T15:02:40.843Z","method":"GET","url":"/branch/"}
 {"timestamp":"2023-07-06T19:15:05.789Z","method":"GET","url":"/products/2"}
 {"timestamp":"2023-07-06T19:15:27.579Z","method":"GET","url":"/products/2"}
+{"timestamp":"2023-07-07T20:06:58.259Z","method":"GET","url":"/branch/"}
+{"timestamp":"2023-07-07T20:15:47.594Z","method":"GET","url":"/branch/"}
+{"timestamp":"2023-07-07T20:17:03.469Z","method":"GET","url":"/branch/"}
+{"timestamp":"2023-07-07T20:17:53.017Z","method":"GET","url":"/branch/"}
