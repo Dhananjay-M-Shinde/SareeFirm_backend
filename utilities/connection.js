@@ -87,6 +87,8 @@ const productSchema = new mongoose.Schema({
 }, {collection:"inventory", timestamps:true});
 
 
+
+
 let collection = {};
 
 collection.getAllBranch = async() => {
