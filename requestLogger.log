@@ -108,3 +108,13 @@
 {"timestamp":"2023-07-08T22:57:02.442Z","method":"PUT","url":"/products/updateProduct/4/6/red"}
 {"timestamp":"2023-07-08T22:58:45.410Z","method":"PUT","url":"/products/updateProduct/4/6/red"}
 {"timestamp":"2023-07-08T23:02:25.040Z","method":"PUT","url":"/products/updateProduct/4/6/red"}
+{"timestamp":"2023-07-09T15:22:52.472Z","method":"GET","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T15:24:42.030Z","method":"PUT","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T15:25:15.679Z","method":"PUT","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T17:45:39.991Z","method":"PUT","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T17:49:55.200Z","method":"PUT","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T18:00:03.497Z","method":"PUT","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T18:05:55.291Z","method":"PUT","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T18:12:27.582Z","method":"PUT","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T18:13:30.091Z","method":"PUT","url":"/products/addVarient/5/4"}
+{"timestamp":"2023-07-09T18:17:21.021Z","method":"PUT","url":"/products/addVarient/5/4"}

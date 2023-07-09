@@ -26,9 +26,20 @@ class newProduct {
     }
   }
   
-  // Assuming you have the array of documents in the `req.body` object
+class newVarient{
+  constructor(variant){
+              this.Color = variant.Color,
+              this.Price =  variant.Price,
+              this.Design =  variant.Design,
+              this.Image =  variant.Image,
+              this.Quantity_Available = variant.Quantity_Available
+  }
+}
  
   
 
 
-  module.exports = newProduct;
+  module.exports = {
+    newProduct,
+    newVarient
+  };

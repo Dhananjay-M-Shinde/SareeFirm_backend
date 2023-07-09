@@ -38,4 +38,16 @@ product.updateProduct = async(branch_id, product_id, color, data) =>{
     }
 }
 
+product.addVarient = async(product_id, branch_id, varient) =>{
+    let varients = await modelProduct.addVarient(product_id, branch_id, varient);
+
+    if(varients){
+        return true;
+    }else{
+        let err = new Error("some error occur while adding new varient");
+        err.status = 401;
+        throw err;
+    }
+}
+
 module.exports = product;

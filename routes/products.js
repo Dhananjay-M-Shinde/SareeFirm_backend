@@ -14,7 +14,7 @@ router.get('/:branch_id', async(req, res, next) =>{
 
 router.post('/newProduct', async(req, res, next) =>{
     try {
-        let productObj = new newProduct(req.body);
+        let productObj = new newProduct.newProduct(req.body);
         await controllerProduct.addNewProduct(req.body);
         res.status(201).json({"message":"product added succesfully"});
     } catch (error) {
@@ -33,6 +33,19 @@ router.put('/updateProduct/:branch_id/:product_id/:color', async(req, res, next)
         next(error);
     }
     
+})
+
+router.put('/addVarient/:product_id/:branch_id', async(req, res, next) =>{
+    try {
+        let newVarient = new newProduct.newVarient(req.body);
+        let product_id = req.params.product_id;
+        let branch_id = req.params.branch_id;
+        let varient = req.body;
+        let addVarient = await controllerProduct.addVarient(product_id, branch_id, varient);
+        res.status(201).json({"message": "varient added succesfully"});
+    } catch (error) {
+        next(error);
+    }
 })
 
 module.exports = router;
