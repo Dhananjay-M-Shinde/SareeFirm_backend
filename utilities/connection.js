@@ -87,6 +87,61 @@ const productSchema = new mongoose.Schema({
 }, {collection:"inventory", timestamps:true});
 
 
+const salesSchema = new mongoose.Schema({
+  salesId: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  customerName: {
+    type: String,
+    required: true
+  },
+  customerMobile: {
+    type: String,
+    required: true
+  },
+  salesDate: {
+    type: Date,
+    required: true
+  },
+  productCart: [
+    {
+      productId: {
+        type: Number,
+        required: true
+      },
+      branchId: {
+        type: Number,
+        required: true
+      },
+      productName: {
+        type: String,
+        required: true
+      },
+      color: {
+        type: String,
+        required: true
+      },
+      quantity: {
+        type: Number,
+        required: true
+      },
+      totalAmount: {
+        type: Number,
+        required: true
+      }
+    }
+  ],
+  totalAmount: {
+    type: Number,
+    required: true
+  }
+}, {collection:"sales", timestamps:true});
+
+
+
+
 
 
 let collection = {};
@@ -113,7 +168,19 @@ collection.getProduct = async() => {
       error.status = 500;
       throw error;
     }
-}
+};
+
+collection.getSales = async() => {
+  try{
+      await mongoose.connect('mongodb://127.0.0.1:27017/SareeFirmDB',{useNewUrlParser:true});
+      let model = await mongoose.model("sales", salesSchema);
+      return model;
+  }catch(err){
+      let error = new Error("could not connect to database");
+      error.status = 500;
+      throw error;
+  }
+};
 
 
 
