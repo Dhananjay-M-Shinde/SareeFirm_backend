@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise=global.Promise;
 const url = 'mongodb://127.0.0.1:27017/SareeFirmDB';
 
+
 const branchSchema = new mongoose.Schema({
   Branch_Id: {
     type: Number,
@@ -89,9 +90,9 @@ const productSchema = new mongoose.Schema({
 
 const salesSchema = new mongoose.Schema({
   salesId: {
-    type: Number,
-    required: true,
-    unique: true
+  type: Number,
+  required : true,
+  unique: true
   },
   customerName: {
     type: String,
@@ -137,7 +138,7 @@ const salesSchema = new mongoose.Schema({
     type: Number,
     required: true
   }
-}, {collection:"sales", timestamps:true});
+}, {collection:"saless", timestamps:true});
 
 
 
@@ -173,7 +174,7 @@ collection.getProduct = async() => {
 collection.getSales = async() => {
   try{
       await mongoose.connect('mongodb://127.0.0.1:27017/SareeFirmDB',{useNewUrlParser:true});
-      let model = await mongoose.model("sales", salesSchema);
+      let model = await mongoose.model("saless", salesSchema);
       return model;
   }catch(err){
       let error = new Error("could not connect to database");

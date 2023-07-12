@@ -16,7 +16,7 @@ router.post('/newProduct', async(req, res, next) =>{
     try {
         let productObj = new newProduct.newProduct(req.body);
         await controllerProduct.addNewProduct(req.body);
-        res.status(201).json({"message":"product added succesfully"});
+        
     } catch (error) {
         
     }
@@ -24,6 +24,7 @@ router.post('/newProduct', async(req, res, next) =>{
 
 router.put('/updateProduct/:branch_id/:product_id/:color', async(req, res, next) =>{
     try {
+        console.log("into update product");
         let branch_id = req.params.branch_id;
         let product_id = req.params.product_id;
         let color = req.params.color;
