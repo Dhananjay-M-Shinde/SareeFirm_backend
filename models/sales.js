@@ -84,7 +84,7 @@ sale.salesByBranch_ProductId = async(branchId, productId) =>{
         },
         totalSales: { $sum: "$productCart.totalAmount" },
         TotalQuantitySaled: { $sum: "$productCart.quantity" },
-        count: { $sum: 1 }
+        TotalOrders: { $sum: 1 }
       }
     }
   ]).exec();
