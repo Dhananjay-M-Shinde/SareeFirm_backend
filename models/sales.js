@@ -61,4 +61,43 @@ sale.salesByProductId = async(product_id) =>{
     }
 }
 
+sale.salesByBranch_ProductId = async(branchId, productId) =>{
+  let branch_id = Number(branchId);
+  let product_id = Number(productId);
+  let model = await connection.getSales();
+  let sales = await model.aggregate([
+    {
+      $unwind: "$productCart"
+    },
+    {
+      $match: {
+        "productCart.productId": product_id,
+        "productCart.branchId": branch_id
+      }
+    },
+    {
+      $group: {
+        _id: {
+          productId: "$productCart.productId",
+          branchId: "$productCart.branchId",
+          color: "$productCart.color"
+        },
+        totalSales: { $sum: "$productCart.totalAmount" },
+        TotalQuantitySaled: { $sum: "$productCart.quantity" },
+        count: { $sum: 1 }
+      }
+    }
+  ]).exec();
+  console.log(sales);
+  if(sales){
+    return sales;
+}else{
+    let err = new Error("some error occur while fetching sale by Product_id and Branch_id");
+    err.status = 401;
+    throw err;
+}
+}
+
+
+
 module.exports = sale;

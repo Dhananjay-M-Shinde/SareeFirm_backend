@@ -272,3 +272,8 @@
 {"timestamp":"2023-07-13T19:36:54.317Z","method":"GET","url":"/sales/salesByProductId/6"}
 {"timestamp":"2023-07-13T19:38:39.526Z","method":"GET","url":"/sales/salesByProductId/6"}
 {"timestamp":"2023-07-13T19:39:23.575Z","method":"GET","url":"/sales/salesByProductId/6"}
+{"timestamp":"2023-07-14T20:59:47.722Z","method":"GET","url":"/sales/salesByBranch_ProductId/4/6"}
+{"timestamp":"2023-07-14T21:01:00.682Z","method":"GET","url":"/sales/salesByBranch_ProductId/4/6"}
+{"timestamp":"2023-07-14T21:05:45.577Z","method":"GET","url":"/sales/salesByBranch_ProductId/4/6"}
+{"timestamp":"2023-07-14T21:07:24.550Z","method":"GET","url":"/sales/salesByBranch_ProductId/4/6"}
+{"timestamp":"2023-07-14T21:12:00.537Z","method":"GET","url":"/sales/salesByBranch_ProductId/4/6"}

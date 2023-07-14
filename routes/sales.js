@@ -27,4 +27,16 @@ router.get('/salesByProductId/:product_id', async(req, res, next) =>{
     }
 });
 
+router.get('/salesByBranch_ProductId/:branch_id/:product_id', async(req, res, next) =>{
+    try {
+        let branch_id = req.params.branch_id;
+        let product_id = req.params.product_id;
+
+        let sales = await controllerSales.salesByBranch_ProductId(branch_id, product_id);
+        res.send(sales)
+    } catch (error) {
+        next(error);
+    }
+})
+
 module.exports = router;
