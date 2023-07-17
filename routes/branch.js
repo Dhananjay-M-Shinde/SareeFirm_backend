@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const controllerBranch = require('../controllers/branch');
 const addNewBranch = require('../models/newBranch');
+const bcrypt = require('bcrypt');
 
 
 router.get('/', async(req, res, next) =>{
@@ -15,7 +16,8 @@ router.get('/', async(req, res, next) =>{
 
 router.post('/addNewBranch', async(req, res, next) =>{
     try {
-        let newBranch = new addNewBranch(req.body);
+        let hashcode = await bcrypt.hash(req.body.Password, 10);
+        let newBranch = new addNewBranch(req.body, hashcode);
         await controllerBranch.addNewBranch(newBranch);
         res.status(201).json({"message":"Successfully added new Branch"});
     } catch (error) {

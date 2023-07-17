@@ -145,6 +145,7 @@ const salesSchema = new mongoose.Schema({
 
 
 
+
 let collection = {};
 
 collection.getAllBranch = async() => {

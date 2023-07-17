@@ -33,6 +33,7 @@ router.get('/salesByBranch_ProductId/:branch_id/:product_id', async(req, res, ne
         let product_id = req.params.product_id;
 
         let sales = await controllerSales.salesByBranch_ProductId(branch_id, product_id);
+        console.log(sales[0].totalSales);
         res.send(sales)
     } catch (error) {
         next(error);
