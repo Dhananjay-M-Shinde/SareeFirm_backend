@@ -14,14 +14,26 @@ router.get('/', async(req, res, next) =>{
     }
 });
 
-router.post('/addNewBranch', async(req, res, next) =>{
+router.post('/addNewbranch/SendOtp', async(req, res, next) =>{
     try {
         let hashcode = await bcrypt.hash(req.body.Password, 10);
         let newBranch = new addNewBranch(req.body, hashcode);
-        await controllerBranch.addNewBranch(newBranch);
+        await controllerBranch.addNewBranch(req, res,newBranch);
         res.status(201).json({"message":"Successfully added new Branch"});
     } catch (error) {
         next(error);
+    }
+})
+
+router.post('/addNewBranch/Register/:otp', async(req, res, next) =>{
+    try {
+        let hashcode = await bcrypt.hash(req.body.Password, 10);
+        let newBranch = new addNewBranch(req.body, hashcode);
+        let otp = req.params.otp;
+        let register = await controllerBranch.register(req, res,newBranch, otp);
+
+    } catch (error) {
+        
     }
 })
 

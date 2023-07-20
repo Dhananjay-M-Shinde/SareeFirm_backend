@@ -13,8 +13,8 @@ branch.getAllBranch = async() =>{
     }
 }
 
-branch.addNewBranch = async(newBranch) =>{
-    let newBranchadded = await modelbranch.addNewBranch(newBranch);
+branch.addNewBranch = async(req, res,newBranch) =>{
+    let newBranchadded = await modelbranch.addNewBranch(req, res,newBranch);
     if(newBranchadded){
         return true;
     }else{
@@ -22,6 +22,11 @@ branch.addNewBranch = async(newBranch) =>{
         err.status = 401;
         throw err;
     }
+}
+
+branch.register = async(req, res,newBranch, otp) =>{
+    console.log("inside conntor", newBranch);
+    let otpVerified = await modelbranch.register(req, res,newBranch, otp);
 }
 
 branch.updateDetails = async(detailsObj, branch_id) =>{
