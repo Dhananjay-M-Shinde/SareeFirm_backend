@@ -20,14 +20,17 @@ auth.transporter = nodemailer.createTransport({
 // Generate random OTP
 auth.generateOtp = function (){
   otp = crypto.randomInt(100000, 999999).toString();
-  console.log("inside generateOtp function", otp);
+  //clearing array
+  while (this.ottp.length > 0) {
+    this.ottp.pop();
+  }
+//   inserting new otp in array
   this.ottp.push(otp);
   return otp;
 }
 
 // Send OTP to the user's email
 auth.sendOTP = function(email, otp) {
-    console.log("inside send otp");
   const mailOptions = {
     from: 'dhanajayshinde2212@gmail.com',
     to: email,
@@ -37,7 +40,6 @@ auth.sendOTP = function(email, otp) {
 
   try {
     auth.transporter.sendMail(mailOptions, (error, info) => {
-        console.log("innside send mail");
         if (error) {
           console.log('Error sending email:', error);
         } else {

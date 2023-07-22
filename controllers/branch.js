@@ -25,7 +25,6 @@ branch.addNewBranch = async(req, res,newBranch) =>{
 }
 
 branch.register = async(req, res,newBranch, otp) =>{
-    console.log("inside conntor", newBranch);
     let otpVerified = await modelbranch.register(req, res,newBranch, otp);
 }
 

@@ -1,0 +1,2 @@
+// while inserting new branch if unnique constrain like branchId, email if these things are not unique data is not getting inserted but it won't throwing any error.
+// otp verification has to be added for password change also.
