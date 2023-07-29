@@ -625,3 +625,10 @@
 {"timestamp":"2023-07-22T20:39:02.610Z","method":"POST","url":"/branch/addNewBranch/SendOtp"}
 {"timestamp":"2023-07-22T20:40:26.159Z","method":"POST","url":"/branch/addNewBranch/Register/487263"}
 {"timestamp":"2023-07-22T20:40:36.803Z","method":"POST","url":"/branch/addNewBranch/Register/487263"}
+{"timestamp":"2023-07-29T20:35:49.732Z","method":"GET","url":"/"}
+{"timestamp":"2023-07-29T21:53:47.608Z","method":"OPTIONS","url":"/api/login"}
+{"timestamp":"2023-07-29T21:56:55.518Z","method":"POST","url":"/api/login"}
+{"timestamp":"2023-07-29T21:56:58.590Z","method":"POST","url":"/api/login"}
+{"timestamp":"2023-07-29T21:57:23.780Z","method":"POST","url":"/api/login"}
+{"timestamp":"2023-07-29T21:58:19.834Z","method":"POST","url":"/api/login"}
+{"timestamp":"2023-07-29T21:58:57.172Z","method":"POST","url":"/api/login"}

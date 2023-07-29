@@ -1,2 +1,32 @@
 // while inserting new branch if unnique constrain like branchId, email if these things are not unique data is not getting inserted but it won't throwing any error.
 // otp verification has to be added for password change also.
+// after successful registration one mail consisting registration details exluding password should be sent to the user via mail.
+
+
+public class Average{
+
+    public static double calculateAverage(int[] nums) {
+        int sumDivisibleBy3AndEven = 0;
+        int countDivisibleBy3AndEven = 0;
+
+        for (int num : nums) {
+            if (num % 3 == 0 && num % 2 == 0) {
+                sumDivisibleBy3AndEven += num;
+                countDivisibleBy3AndEven++;
+            }
+        }
+
+        if (countDivisibleBy3AndEven == 0) {
+            return 0; // To avoid division by zero
+        }
+
+        double averageDivisibleBy3AndEven = (double) sumDivisibleBy3AndEven / countDivisibleBy3AndEven;
+        return averageDivisibleBy3AndEven;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 6, 9, 12, 15, 18, 21, 24};
+        double result = calculateAverage(nums);
+        System.out.println("Average of numbers divisible by 3 and even: " + result);
+    }
+}

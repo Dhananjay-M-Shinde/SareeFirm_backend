@@ -6,6 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 
 
 const app = express();
@@ -14,7 +15,7 @@ const indexRouter = require('./routes/index');
 const requestLogger = require('./utilities/requestLogger');
 const errorLogger = require('./utilities/errorLogger');
 
-
+app.use(cors());
 app.use(requestLogger);
 app.use(helmet());
 app.use(helmet.frameguard());
