@@ -20,7 +20,7 @@ branch.getBranch = async() =>{
 
 branch.addNewBranch = async(req, res,NewBranch) =>{
   const Email = NewBranch.Email;
-
+  let model = await connection.getAllBranch();
   // Check if the email is already registered
   const userExists = await model.findOne({ Email });
   if (userExists) {
