@@ -20,7 +20,7 @@ login.userLogin = async(req, res, data) =>{
             , 
             JWT_SECRET
         );
-        return res.json({status:201, data:token}); 
+        return res.json({status:201, data:{token, Branch_Id: user.Branch_Id}}); 
     }
 
     res.json({status:401, error:"username or password is incorrect"});

@@ -142,15 +142,11 @@ const salesSchema = new mongoose.Schema({
 
 
 
-
-
-
-
 let collection = {};
 
 collection.getAllBranch = async() => {
     try{
-        await mongoose.connect('mongodb://127.0.0.1:27017/SareeFirmDB',{useNewUrlParser:true});
+        await mongoose.connect('mongodb://127.0.0.1:27017/SareeFirmDB',{useNewUrlParser:true, useUnifiedTopology:true});
         let model = await mongoose.model("branch", branchSchema);
         return model;
     }catch(err){

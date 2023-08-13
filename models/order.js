@@ -64,14 +64,14 @@ order.processOrder = async(req, res, orderObj) =>{
         insufficientProducts.push({ productId, branchId, color});
       }
     }
-    console.log(insufficientProducts);
+    console.log("insufficient quantity ",insufficientProducts);
 
     // If any products have insufficient quantity, return an error response
     if (insufficientProducts.length > 0) {
+      console.log('Insufficient quantity for some products', insufficientProducts);
       res.status(400).json({ message: 'Insufficient quantity for some products', insufficientProducts });
       return;
     }
-    console.log("after response");
 
     // Process the order, update inventory, and perform other necessary operations
     // ...

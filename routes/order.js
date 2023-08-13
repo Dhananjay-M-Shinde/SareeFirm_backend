@@ -8,10 +8,8 @@ router.post('/orderPlaced', async(req, res, next) =>{
     try {
         let orderObj = new order(req.body);
         await controllerOrder.processOrder( req, res, orderObj);
-        
-        res.status(201).json({"message":"order process succesfully"});
-        
-        
+        res.status(201);
+        res.json({"message":"order process succesfully"});
     } catch (error) {
         next(error);
     }

@@ -4,9 +4,9 @@ let sale = {};
 
 sale.salesByBranch = async(branch_id) =>{
     var branchId = Number(branch_id);
-    console.log("into model1");
+    // console.log("into model1");
     let model = await connection.getSales();
-    console.log("into model2");
+    // console.log("into model2");
 
     let sales_by_branch = await model.aggregate([
         {

@@ -16,6 +16,7 @@ router.get('/', async(req, res, next) =>{
 
 router.post('/addNewbranch/SendOtp', async(req, res, next) =>{
     try {
+        console.log("into addbranch route");
         let hashcode = await bcrypt.hash(req.body.Password, 10);
         let newBranch = new addNewBranch(req.body, hashcode);
         await controllerBranch.addNewBranch(req, res,newBranch);

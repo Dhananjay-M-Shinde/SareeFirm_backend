@@ -36,10 +36,7 @@ class newVarient{
   }
 }
  
-  
-
-
-  module.exports = {
+module.exports = {
     newProduct,
     newVarient
   };

@@ -19,15 +19,18 @@ branch.getBranch = async() =>{
 }
 
 branch.addNewBranch = async(req, res,NewBranch) =>{
+    console.log("into addbranch model");
   const Email = NewBranch.Email;
   let model = await connection.getAllBranch();
   // Check if the email is already registered
   const userExists = await model.findOne({ Email });
   if (userExists) {
+    console.log("user exist");
     return res.status(400).json({ message: 'Email already registered' });
   }
 
   // Generate OTP
+  console.log("sending otp");
   const otp = await auth.generateOtp();
   console.log(otp, "this is opt generated");
 
@@ -41,6 +44,8 @@ branch.addNewBranch = async(req, res,NewBranch) =>{
 
 branch.register = async(req, res,NewBranch, otp) =>{
   // Check if the OTP matches
+//   console.log(NewBranch);
+//   console.log(otp);
   if (Number(auth.ottp[0]) !== Number(otp)) {
     console.log("otp not matched");
     return res.status(401).json({ message: 'Incorrect OTP' });
@@ -50,7 +55,7 @@ branch.register = async(req, res,NewBranch, otp) =>{
   
   let branchInserted = await model.insertMany(NewBranch);
  
-  console.log(branchInserted);
+  console.log("registered success", branchInserted);
 
   res.json({ message: 'Registration successful' });
 }
