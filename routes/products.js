@@ -28,6 +28,8 @@ router.put('/updateProduct/:branch_id/:product_id/:color', async(req, res, next)
         let branch_id = req.params.branch_id;
         let product_id = req.params.product_id;
         let color = req.params.color;
+        console.log(branch_id, product_id, color);
+        console.log(req.body);
         let product = await controllerProduct.updateProduct(branch_id, product_id, color, req.body);
     res.status(201).json({"message":"product details updated succesfully"});
     } catch (error) {
