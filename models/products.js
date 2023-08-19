@@ -16,8 +16,10 @@ product.getAllProducts = async(branch_id) =>{
 }
 
 product.addNewProduct = async(productObj) =>{
+    console.log(productObj);
     let model = await connection.getProduct();
     let product = await model.insertMany(productObj);
+
     
     if(product){
         return true;
@@ -46,7 +48,7 @@ product.updateProduct = async(branch_id, product_id, color, data) =>{
 
 product.addVarient = async(product_id, branch_id, varient) =>{
     let model = await connection.getProduct();
-
+console.log("into varient model");
     const existingVariant = await model.findOne(
         { Branch_Id: branch_id, Product_Id: product_id, "Varients.Color": varient.Color },
         { Varients: { $elemMatch: { Color: varient.Color } } }
@@ -54,11 +56,13 @@ product.addVarient = async(product_id, branch_id, varient) =>{
 
       
     if(!existingVariant){
+        console.log("into varient model yes");
         let varients = await model.updateOne({Branch_Id:branch_id, Product_Id:product_id}, {
             $push: { Varients: varient }
           });
 
           if(varients){
+            console.log("success");
             return true;
         }else{
             let err = new Error("some error occur while inserting new varient");
@@ -66,6 +70,7 @@ product.addVarient = async(product_id, branch_id, varient) =>{
             throw err;
         }
     }else{
+        console.log("into varient model not");
         let err = new Error("varient is already available for given product");
         err.status = 401;
         throw err;

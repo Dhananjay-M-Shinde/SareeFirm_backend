@@ -158,8 +158,13 @@ collection.getAllBranch = async() => {
 
 collection.getProduct = async() => {
     try {
+      console.log("into conn getp");
       await mongoose.connect('mongodb://127.0.0.1:27017/SareeFirmDB',{useNewUrlParser:true});
+      console.log("into conn getp1");
+
       let model = await mongoose.model("inventory", productSchema);
+      console.log("into conn getp2");
+
       return model;
     } catch (err) {
       let error = new Error("could not connect to database");

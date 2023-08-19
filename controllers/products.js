@@ -15,9 +15,11 @@ product.getAllProducts = async(branch_id) =>{
 }
 
 product.addNewProduct = async(productObbj) =>{
+    console.log("adding new pr contr");
     let product = await modelProduct.addNewProduct(productObbj);
 
     if(product){
+        console.log("adding new pr contr 1");
         return true;
     }else{
         let err = new Error("some error occur while inserting new product");

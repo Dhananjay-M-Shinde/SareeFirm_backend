@@ -14,11 +14,11 @@ router.get('/:branch_id', async(req, res, next) =>{
 
 router.post('/newProduct', async(req, res, next) =>{
     try {
-        let productObj = new newProduct.newProduct(req.body);
+        // let productObj = new newProduct.newProduct(req.body); not working check it later
         await controllerProduct.addNewProduct(req.body);
         
     } catch (error) {
-        
+        next(error);
     }
 });
 
@@ -40,6 +40,7 @@ router.put('/updateProduct/:branch_id/:product_id/:color', async(req, res, next)
 
 router.put('/addVarient/:product_id/:branch_id', async(req, res, next) =>{
     try {
+        console.log("into varient route");
         let newVarient = new newProduct.newVarient(req.body);
         let product_id = req.params.product_id;
         let branch_id = req.params.branch_id;

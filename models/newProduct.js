@@ -1,5 +1,6 @@
 class newProduct {
     constructor(data) {
+      console.log(data, "this is data");
       this.products = [];
   
       data.forEach((item) => {
